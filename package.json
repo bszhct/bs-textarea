@@ -1,0 +1,58 @@
+{
+  "name": "@bszhct/bs-textarea",
+  "version": "1.0.0",
+  "description": "通用组件之文本域",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.js",
+    "build": "concurrently 'npm run build:dist' 'npm run tsc' 'npm run gulp'",
+    "build:dist": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "tsc": "tsc -p tsconfig.prod.json && cp -a src/images lib 2>/dev/null || :",
+    "gulp": "gulp",
+    "eslint": "eslint . --ext .ts,.tsx",
+    "es:fix": "eslint . --ext .ts,.tsx --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "npm run eslint",
+      "git add"
+    ]
+  },
+  "main": "index.js",
+  "typings": "lib/index.d.ts",
+  "license": "ISC",
+  "author": "bszhct",
+  "dependencies": {
+    "@bszhct/template-base": "0.0.2",
+    "@bszhct/template-webpack": "0.0.7",
+    "classnames": "^2.2.6",
+    "react": "16.11.0",
+    "react-dom": "16.11.0"
+  },
+  "devDependencies": {
+    "@types/react": "16.9.11",
+    "@types/react-dom": "16.9.3",
+    "gulp": "4.0.2",
+    "gulp-postcss": "8.0.0",
+    "gulp-stylus": "2.7.0"
+  },
+  "browserslist": [
+    "last 5 Chrome versions",
+    "last 5 Firefox versions",
+    "Safari >= 6",
+    "ie > 8"
+  ],
+  "files": [
+    "dist",
+    "lib",
+    "index.js"
+  ],
+  "eslintIgnore": [
+    "lib",
+    "dist"
+  ]
+}

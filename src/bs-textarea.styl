@@ -1,0 +1,24 @@
+.bs-textarea-wrap
+  position relative
+  width 100%
+  height auto
+  line-height normal
+  .bs-textarea
+    // 覆盖继承的值, 否则设置 minRows 会不生效
+    height auto
+    // 防止第一行在输入的时候获取到的高度低于 28, 导致输入框出现抖动
+    min-height 28px
+    max-height 1000000px
+    min-width 200px
+    max-width 100%
+    width 100%
+    padding 4.5px
+    line-height 1.5
+    vertical-align bottom
+    resize none
+    text-overflow ellipsis
+    border 1px solid rgba(0, 0, 0, 0.3)
+    border-radius 4px
+    transition 1s border-color cubic-bezier(0.2, 1, 0.3, 1)
+    &:focus
+      border-color #467FCC
